@@ -52,7 +52,7 @@ export const mintNFT = async (walletPubkeyString: string) => {
       tokenOwner: userPublicKey,
       useNewMint: mintKeypair,
     });
-
+    console.log(nft);
     return { success: true, message: "Nft minted success" };
   } catch (error) {
     console.log(error);
@@ -63,9 +63,9 @@ export const mintNFT = async (walletPubkeyString: string) => {
 
 export const verifyEmail = async (email: string) => {
   try {
-    const response = await new Promise((resolve, reject) => {
+    await new Promise((resolve, reject) => {
       setTimeout(() => {
-        const isMember = email === "100xdev@gmail.com";
+        const isMember = email === "testuser@gmail.com";
         if (isMember) {
           resolve(true);
         } else {
@@ -76,8 +76,7 @@ export const verifyEmail = async (email: string) => {
 
     return true;
   } catch (err) {
+    console.log(err)
     return false;
   }
 };
-
-

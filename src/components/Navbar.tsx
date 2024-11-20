@@ -20,7 +20,7 @@ export default function Navbar() {
     setIsClient(true);
   }, []);
   return (
-    <nav className="w-full h-fit bg-transparent flex items-center justify-between text-white px-10 py-6">
+    <nav className="w-full h-fit bg-transparent flex items-center justify-between text-white md:px-10 px-5 py-6">
       <h2 className="text-xl font-bold">100xDevs</h2>
       <WalletMultiButtonDynamic
         style={{
