@@ -14,6 +14,11 @@ export default function MintNFT() {
   const handleNFTMinting = async () => {
     try {
       setMinting(true);
+      if (!wallet.publicKey) {
+        toast.error("Please connect your wallet to continue");
+        return;
+      }
+
       const response = await mintNFT(JSON.stringify(wallet.publicKey));
       if (response.error == "AccountNotFoundError") {
         console.warn("Some error occured.But NFT minted!");
@@ -24,7 +29,7 @@ export default function MintNFT() {
         toast.error(response.error);
       }
     } catch (err) {
-      console.warn(err)
+      console.warn(err);
       toast.error("Error Minting NFT");
     } finally {
       setMinting(false);
