@@ -19,7 +19,10 @@ export default function MintNFT() {
         return;
       }
 
-      const response = await mintNFT(JSON.stringify(wallet.publicKey));
+      const publicKeyString = wallet.publicKey.toBase58()
+
+      const response = await mintNFT(publicKeyString);
+      
       if (response.error == "AccountNotFoundError") {
         console.warn("Some error occured.But NFT minted!");
       }

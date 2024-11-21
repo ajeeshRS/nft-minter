@@ -9,10 +9,11 @@ import bs58 from "bs58";
 
 export const mintNFT = async (walletPubkeyString: string) => {
   try {
-    const walletPublicKey = JSON.parse(walletPubkeyString);
+    const walletPublicKey = walletPubkeyString;
 
     if (!walletPublicKey) {
-      throw new Error("Missing required field: walletPublicKey ");
+      console.log("Please provide wallet public key")
+      return { success: false, error: "Internal server error" };
     }
     const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
@@ -57,7 +58,7 @@ export const mintNFT = async (walletPubkeyString: string) => {
   } catch (error) {
     console.log(error);
     const err = error as MetaplexError;
-    console.log(err)
+    console.log(err);
     return { success: false, error: err.name };
   }
 };
@@ -77,7 +78,7 @@ export const verifyEmail = async (email: string) => {
 
     return true;
   } catch (err) {
-    console.log(err)
+    console.log(err);
     return false;
   }
 };
