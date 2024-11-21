@@ -57,6 +57,7 @@ export const mintNFT = async (walletPubkeyString: string) => {
   } catch (error) {
     console.log(error);
     const err = error as MetaplexError;
+    console.log(err)
     return { success: false, error: err.name };
   }
 };
