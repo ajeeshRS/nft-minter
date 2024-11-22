@@ -18,7 +18,8 @@ export const mintNFT = async (walletPubkeyString: string) => {
     const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
     const metadataUrl = process.env.METADATA_URL as string;
-    console.log('got metadata url')
+    console.log('got metadata url:',metadataUrl)
+
     const adminKeypair = Keypair.fromSecretKey(
       bs58.decode(process.env.ADMIN_PRIVATE_KEY as string)
     );
