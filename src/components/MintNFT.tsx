@@ -1,7 +1,7 @@
 "use client";
 
 import { useWallet } from "@solana/wallet-adapter-react";
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 import Loader from "./Loader";
 import { mintNFT } from "@/app/actions/actions";
@@ -9,7 +9,7 @@ import { mintNFT } from "@/app/actions/actions";
 export default function MintNFT() {
   const [minting, setMinting] = useState<boolean>(false);
 
-  const wallet = useMemo(() => useWallet(), []);
+  const wallet = useWallet();
 
   const handleNFTMinting = async () => {
     try {
@@ -21,7 +21,7 @@ export default function MintNFT() {
 
       const publicKeyString = wallet.publicKey.toBase58();
 
-      console.log("pub key to base 58 :",publicKeyString)
+      console.log("pub key to base 58 :", publicKeyString);
       const response = await mintNFT(publicKeyString);
 
       if (response.error == "AccountNotFoundError") {
