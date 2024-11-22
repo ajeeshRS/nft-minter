@@ -21,7 +21,6 @@ export default function MintNFT() {
 
       const publicKeyString = wallet.publicKey.toBase58();
 
-      console.log("pub key to base 58 :", publicKeyString);
       const response = await mintNFT(publicKeyString);
 
       if (response.error == "AccountNotFoundError") {
@@ -33,7 +32,6 @@ export default function MintNFT() {
         toast.error(response.error);
       }
     } catch (err) {
-      console.warn(err);
       toast.error("Error Minting NFT");
     } finally {
       setMinting(false);
