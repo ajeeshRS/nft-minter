@@ -31,7 +31,7 @@ export default function MintNFT() {
       } else {
         toast.error(response.error);
       }
-    } catch (err) {
+    } catch (_err) {
       toast.error("Error Minting NFT");
     } finally {
       setMinting(false);

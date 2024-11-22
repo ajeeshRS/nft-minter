@@ -46,7 +46,7 @@ export const mintNFT = async (walletPubkeyString: string) => {
       };
     }
 
-    const { nft } = await metaplex.nfts().create({
+    await metaplex.nfts().create({
       uri: metadataUrl,
       name: "100xDevs NFT",
       sellerFeeBasisPoints: 500,
