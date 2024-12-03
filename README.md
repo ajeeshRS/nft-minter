@@ -1,5 +1,5 @@
 # Custom Nft Minter
-- Developed a highly secure and exclusive NFT minting platform using Next.js, TypeScript, Solana Web3.js, and Metaplex.
+- Developed a highly secure and exclusive NFT minting platform using Next.js, TypeScript, Solana Web3.js, and Metaplex within 9 hours.
 
 ### Features
 **Access Control by Email** :
